@@ -6,7 +6,7 @@ import Grade from '../components/episodios/Grade';
 import { data } from '../data';
 
 const Index = () => {
-  const [qtdEpisodios, setQtdEpisodios] = useState(2);
+  const [qtdEpisodios, setQtdEpisodios] = useState(4);
   const [modalState, setModalState] = useState(false);
   const [dados, setDados] = useState(data);
   const ultimo_id: number = Math.max.apply(null, dados.map(registro => parseInt(registro.id)));

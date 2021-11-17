@@ -40,7 +40,7 @@ const Main = (props: IMainProps) => {
         </div>
       </div>
 
-      <div className="py-5 text-xl content">
+      <div className="py-8 text-xl content w-full">
         {props.children}
       </div>
 

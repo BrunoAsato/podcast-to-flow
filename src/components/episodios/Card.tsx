@@ -14,7 +14,7 @@ interface Props {
 const Card = (props: Props): ReactElement => {
   const { video } = props;
   return ( { video } && 
-    <a href={video.url} className="hover:border-none">
+    <a href={video.url} className="hover:border-none py-0">
       <div className="group hover:bg-gradient-to-tl hover:from-purple-800 hover:to-purple-500 bg-gradient-to-tl from-gray-800 to-gray-500 p-5 shadow-lg bg-opacity-75 text-color w-full overflow-hidden flex flex-col md:flex-row lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
           <div className="lg:w-1/2 w-full md:h-2/5">
               <div className="h-64 bg-contain bg-no-repeat bg-left-top lg:rounded-lg lg:w-full" style={{backgroundImage: 
