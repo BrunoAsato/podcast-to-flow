@@ -21,7 +21,7 @@ const Card = (props: Props): ReactElement => {
               "url('" + video.thumb_url + "')" }} ></div>
           </div>
           <div className="py-12 px-6 max-w-xl lg:max-w-5xl lg:w-1/2">
-            <MicIcon fontSize={8} />
+            <MicIcon />
             <h1 className="text-xl font-bold text-white">{video.titulo}</h1>
             <div className="mt-4 mb-10">
             </div>
@@ -30,7 +30,7 @@ const Card = (props: Props): ReactElement => {
               {video.descricao || <span> Sem descrição </span>}
             </h2>
               <div className="items-end w-full grid justify-items-end">
-              <PlayIcon fontSize={50} />
+              <PlayIcon />
               </div>
         </div>
       </div>
@@ -39,8 +39,3 @@ const Card = (props: Props): ReactElement => {
 }
 
 export default Card;
-
-
-<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-</svg>

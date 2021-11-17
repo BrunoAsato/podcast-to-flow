@@ -4,13 +4,12 @@ import { Main } from '../templates/Main';
 //import YoutubeAPI from '../services/youtube';
 import Grade from '../components/episodios/Grade';
 import { data } from '../data';
-import dotenv from 'dotenv';
 
 const Index = () => {
   const [qtdEpisodios, setQtdEpisodios] = useState(2);
   const [modalState, setModalState] = useState(false);
   const [dados, setDados] = useState(data);
-  const ultimo_id: number = Math.max.apply(null, dados.map(registro => registro.id));
+  const ultimo_id: number = Math.max.apply(null, dados.map(registro => parseInt(registro.id)));
   const [id, setId] = useState(ultimo_id);
   
   useEffect(() => {
@@ -18,7 +17,7 @@ const Index = () => {
   }, [dados]);
 
   useEffect(() => {
-    const modal: HTMLInputElement = document.querySelector('#main-modal');
+    const modal: any = document.querySelector('#main-modal') || '';
     if (modalState) {
       modal.classList.remove('fadeOut');
       modal.classList.add('fadeIn');
@@ -33,13 +32,15 @@ const Index = () => {
   }, [modalState]);
 
   const validate_form = (): void => {
-    const id_field: string = id.toString();
-    const titulo: HTMLInputElement = document.querySelector('#titulo');
-    const url: HTMLInputElement = document.querySelector('#url');
-    const thumb_url: HTMLInputElement = document.querySelector('#thumb_url');
+    let id_field: any = id.toString();
+    const titulo: any = document.querySelector('#titulo') || '';
+    const url: any = document.querySelector('#url') || '';
+    const thumb_url: any = document.querySelector('#thumb_url') || '';
+    let id_texto:string = id_field;
 
     if (id_field !== null && titulo.value !== null && titulo.value !== '' && url.value !== null && url.value !== '') {
-      setDados([...dados, {"id": id_field, "titulo": titulo.value, "url": url.value, "thumb_url": thumb_url.value}]);
+      let novoDados: any = [...dados, {"id": id_texto, "titulo": titulo.value, "url": url.value, "thumb_url": thumb_url.value}];
+      setDados(novoDados);
       titulo.value = '';
       url.value = '';
       thumb_url.value = '';
@@ -52,10 +53,7 @@ const Index = () => {
   return (
     <Main
       meta={
-        <Meta
-          title="PodCasts"
-          description="Atividade para processo seletivo Flow"
-        />
+        <Meta/>
       }
     >
       
@@ -67,7 +65,7 @@ const Index = () => {
         min="1"
         max="4"
         value={qtdEpisodios} 
-        onChange={(e)=>(!isNaN(e.target.value)?setQtdEpisodios(e.target.value):alert('O valor do campo deve ser númerico'))}/>
+        onChange={(e: any)=>(!isNaN(e.target.value)?setQtdEpisodios(e.target.value):alert('O valor do campo deve ser númerico'))}/>
       {' '} itens por linha
     </span>
     <div>
