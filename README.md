@@ -2,7 +2,7 @@
 
 ## Desenvolvido com Next JS 12+, Tailwind CSS 2.0 and TypeScript 🚀
 
-[(https://linkedin.com/in/brunoasato)](https://linkedin.com/in/brunoasato)
+Saiba mais sobre mim em [Bruno Asato](https://linkedin.com/in/brunoasato)
 
 ## Deployed on
 
