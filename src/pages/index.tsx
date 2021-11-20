@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Meta } from '../layout/Meta';
 import { Main } from '../templates/Main';
-//import YoutubeAPI from '../services/youtube';
 import Grade from '../components/episodios/Grade';
 import { data } from '../data';
 
@@ -35,15 +34,13 @@ const Index = () => {
     let id_field: any = id.toString();
     const titulo: any = document.querySelector('#titulo') || '';
     const url: any = document.querySelector('#url') || '';
-    const thumb_url: any = document.querySelector('#thumb_url') || '';
     let id_texto:string = id_field;
 
     if (id_field !== null && titulo.value !== null && titulo.value !== '' && url.value !== null && url.value !== '') {
-      let novoDados: any = [...dados, {"id": id_texto, "titulo": titulo.value, "url": url.value, "thumb_url": thumb_url.value}];
+      let novoDados: any = [...dados, {"id": id_texto, "titulo": titulo.value, "url": url.value, "thumb_url": `http://i3.ytimg.com/vi/${url.value.split('?v=')[1].split('&')[0]}/maxresdefault.jpg`}];
       setDados(novoDados);
       titulo.value = '';
       url.value = '';
-      thumb_url.value = '';
 
     } else {
       alert("É necessário preencher todos os campos com *");
@@ -76,7 +73,7 @@ const Index = () => {
     <Grade videos={dados} qtdElementos={qtdEpisodios} />
 
     <div className="main-modal fixed w-full inset-0 z-50 overflow-hidden flex justify-center items-center animated fadeIn faster bg-opacity-70" style={{display: 'none'}} id="main-modal">
-      <div className="border border-blue-500 shadow-lg modal-container bg-white w-4/12 md:max-w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
+      <div className="border border-blue-500 modal-container bg-white w-4/12 md:max-w-11/12 mx-auto rounded-xl shadow-lg z-50 overflow-y-auto">
         <div className="modal-content py-4 text-left px-6">
           <div className="flex justify-between items-center pb-3">
             <p className="text-2xl font-bold text-gray-500">Add Episódio</p>
@@ -111,12 +108,6 @@ const Index = () => {
                     </div>
                     <div className="">
                         <input type="text" id="url" autoComplete="off" name="url" className="h-3 p-6 w-full border-2 border-gray-300 mb-5 rounded-md" placeholder="https://youtube.com/" required />
-                    </div>
-                    <div className="">
-                        <label htmlFor="thumb_url" className="text-md text-gray-600">URL da Thumb</label>
-                    </div>
-                    <div className="">
-                        <input type="text" id="thumb_url" autoComplete="off" name="thumb_url" className="h-3 p-6 w-full border-2 border-gray-300 mb-5 rounded-md" placeholder="https://youtube.com/" />
                     </div>
                 </div>
             </form>
