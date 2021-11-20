@@ -17,7 +17,7 @@ type IGradeProps = {
   
 const Grade = (props: IGradeProps): ReactElement => {
     return(
-        <div className={`grid grid-cols-${props.qtdElementos} gap-4 py-4`}>
+        <div className={`grid grid-cols-${props.qtdElementos} gap-1 py-1`}>
             {props.videos.map(video => <Card key={video.id} video={video} />)}
         </div>
     )
